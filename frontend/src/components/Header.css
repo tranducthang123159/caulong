@@ -1,0 +1,33 @@
+.navbar-brand {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ffd700;
+  }
+  
+  #user-dropdown .dropdown-item {
+    font-size: 0.95rem;
+  }
+  
+  .navbar {
+    background-color: #007bff !important; /* Primary blue */
+  }
+  
+  .navbar-dark .navbar-brand, .navbar-dark .nav-link, .navbar-dark .dropdown-item {
+    color: #ffffff !important;
+  }
+  

@@ -1,0 +1,99 @@
+/* Sidebar Container */
+.sidebar {
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  max-width: 350px; /* Đảm bảo sidebar không quá lớn */
+  height: 100vh; /* Chiều cao full */
+  background-color: #343a40;
+  padding: 0;
+  overflow-y: auto; /* Cuộn nếu nội dung quá dài */
+  color: white;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  background-color: #212529;
+  border-bottom: 1px solid #495057;
+}
+
+.sidebar-header h4 {
+  font-size: 1.8rem; /* Chữ to hơn */
+  margin: 0;
+}
+
+/* Main Navigation Links */
+.nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 1.9rem; /* Chữ lớn hơn */
+  padding: 1rem 2rem; /* Padding rộng */
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+}
+
+.nav-icon {
+  font-size: 1.6rem; /* Icon to */
+}
+
+/* Dropdown Menu */
+.nested-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.nested-item {
+  font-size: 1.2rem;
+  padding: 0.5rem 2.5rem; /* Thụt sâu hơn */
+  color: white;
+  text-decoration: none;
+}
+
+.nested-item:hover {
+  background-color: #6c757d;
+}
+
+/* Stats Section */
+.sidebar-stats h6 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-stats .progress-bar {
+  height: 0.6rem;
+  border-radius: 0.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%; /* Toàn bộ màn hình trên thiết bị nhỏ */
+    position: absolute; /* Sidebar phủ màn hình */
+    z-index: 1050; /* Đảm bảo trên các thành phần khác */
+  }
+
+  .nav-link {
+    font-size: 1.6rem; /* Font nhỏ hơn trên mobile */
+  }
+
+  .nested-item {
+    font-size: 0.9rem;
+  }
+}
+
+
+.nested-item {
+  font-size: 16px; /* Adjust size for nested items */
+}
+
+.sidebar-header h4 {
+  font-size: 24px; /* Adjust size of the header text */
+}
+
+.nav-link {
+  font-size: 1.6rem; /* Font nhỏ hơn trên mobile */
+}
