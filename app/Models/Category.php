@@ -11,12 +11,9 @@ class Category extends Model
 
         protected $fillable = ['name', 'description'];
 
-    public function index()
+    
+    public function products()
     {
-        // Lấy tất cả danh mục từ cơ sở dữ liệu
-        $categories = Category::all();
-
-        // Trả về dữ liệu dưới dạng JSON
-        return response()->json($categories);
+        return $this->hasMany(Product::class);
     }
 }

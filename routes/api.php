@@ -53,6 +53,7 @@ Route::get('/categories/{id}', [CategoryController::class, 'show']); // Lấy ch
 Route::post('/categories', [CategoryController::class, 'store']); // Tạo danh mục mới
 Route::put('/categories/{id}', [CategoryController::class, 'update']); // Cập nhật danh mục
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy']); // Xóa danh mục
+Route::get('/categories/{categoryId}/products', [CategoryController::class, 'getProductsByCategory']);
 
 
 Route::post('/orders', [OrderController::class, 'store']);

@@ -118,6 +118,14 @@ export const routes = [
     page: Admin,
     isShowHeader: true,
   },
+
+
+  {
+    path: '/products/category/:categoryId',
+    page: ProductsPage,
+    isShowHeader: true,
+  },
+
   {
     path: '*',
     page: NotFoundPage,

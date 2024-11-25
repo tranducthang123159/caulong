@@ -3,62 +3,51 @@ import { WrapperContent, WrapperLabelText, WrapperTextPrice, WrapperTextValue } 
 import { Checkbox, Rate } from 'antd';
 
 const NavbarComponent = () => {
-    const onChange =() =>{ }
-    const renderContent =(type,options)=>{
-        switch(type){
-            case'text':
-            return options.map((option)=>{
-                
-                return (           
-                    <WrapperTextValue>{option}</WrapperTextValue>
-                )
-                
-            })
-            case'checkbox' :
-            return (
-            <Checkbox.Group style={{ width: '100%',display:'flex',flexDirection:'column',gap:'12px' }} onChange={onChange}>
-                  
-                      {options.map((option)=>{
-                        return(
-                            <Checkbox style={{marginLeft:0}} value={option.value}>{option.label}</Checkbox>
-                        )
-                      })}  
-            </Checkbox.Group>
-            )
-            case 'star' : 
-            return options.map((option)=>{
-              console.log('check',option)
-              return(
-                <div style ={{display:'flex',gap:'5px'}}>
-                
-                  <Rate style={{fontSize:'12px'}} disabled defaultValue={option}/>
-                  <span>{`từ ${option} sao`}</span>
-                </div>
-              )
-            }) 
+  const onChange = () => {};
 
-            case 'price' : 
-            return options.map((option)=>{
-              
-              return(
-                <WrapperTextPrice>{option}</WrapperTextPrice>
-                
-                  
-                
-              )
-            }) 
+  const renderContent = (type, options) => {
+    switch (type) {
+      case 'text':
+        return options.map((option, index) => (
+          <WrapperTextValue key={index}>{option}</WrapperTextValue>
+        ));
 
-            default:
-                return{}
-        }
+      case 'checkbox':
+        return (
+          <Checkbox.Group
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }}
+            onChange={onChange}
+          >
+            {options.map((option, index) => (
+              <Checkbox key={index} style={{ marginLeft: 0 }} value={option.value}>
+                {option.label}
+              </Checkbox>
+            ))}
+          </Checkbox.Group>
+        );
+
+      case 'star':
+        return options.map((option, index) => (
+          <div key={index} style={{ display: 'flex', gap: '5px' }}>
+            <Rate style={{ fontSize: '12px' }} disabled defaultValue={option} />
+            <span>{`từ ${option} sao`}</span>
+          </div>
+        ));
+
+      case 'price':
+        return options.map((option, index) => (
+          <WrapperTextPrice key={index}>{option}</WrapperTextPrice>
+        ));
+
+      default:
+        return null;
     }
+  };
+
   return (
-    <div  >
+    <div>
       <WrapperLabelText>Label</WrapperLabelText>
-      <WrapperContent>
-      {renderContent('text',['Yonex','Lining','Victor'])}
-      </WrapperContent>
-      
+      <WrapperContent>{renderContent('text', ['Yonex', 'Lining', 'Victor'])}</WrapperContent>
     </div>
   );
 };

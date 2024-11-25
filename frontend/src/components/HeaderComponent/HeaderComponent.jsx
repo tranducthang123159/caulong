@@ -14,6 +14,11 @@ const HeaderComponent = () => {
 
   // Fetch sản phẩm từ API khi load trang
   useEffect(() => {
+    const savedEmail = localStorage.getItem('userEmail');
+    if (savedEmail) {
+      setEmail(savedEmail); // Cập nhật state email
+    }
+
     // Gửi yêu cầu GET để lấy dữ liệu từ API
     fetch('http://localhost:8000/api/products')
       .then((response) => response.json()) // Chuyển đổi dữ liệu thành JSON
@@ -27,6 +32,9 @@ const HeaderComponent = () => {
 
   // Handle tìm kiếm
   const handleSearch = () => {
+
+
+
     console.log('Tìm kiếm đã được gọi!');
     if (searchQuery.trim()) {
       const filteredProducts = products.filter(
@@ -116,8 +124,8 @@ const HeaderComponent = () => {
               }}
             >
               {searchResults.map((product) => {
-const imageUrl = `http://localhost:8000/storage${product.image_url}`;
-return (
+                const imageUrl = `http://localhost:8000/storage${product.image_url}`;
+                return (
                   <div
                     key={product.id}
                     style={{
@@ -125,20 +133,20 @@ return (
                       borderBottom: '1px solid #ddd',
                       cursor: 'pointer',
                     }}
-                    onClick={() => handleProductClick(product.id)} // Chuyển hướng đến trang chi tiết sản phẩm
+                    onClick={() => handleProductClick(product.id)}
                   >
                     <h4>{product.name}</h4>
                     <p>{product.description}</p>
                     {/* Hiển thị hình ảnh sản phẩm */}
                     <img
-  src={`http://localhost:8000/storage${product.image_url}`} // Đã sửa đường dẫn
-  alt={product.name}
-  style={{
-    width: '300px', // Điều chỉnh kích thước hình ảnh
-    height: '300px',
-    objectFit: 'cover',
-  }}
-/>
+                      src={`http://localhost:8000/storage${product.image_url}`}
+                      alt={product.name}
+                      style={{
+                        width: '300px', // Điều chỉnh kích thước hình ảnh
+                        height: '300px',
+                        objectFit: 'cover',
+                      }}
+                    />
 
                   </div>
                 );
